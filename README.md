@@ -1,5 +1,9 @@
 # Frontend Mentor - Space tourism website solution
 
+![Node CI](https://github.com/temirKhan42/space-travel/actions/workflows/node.js.yml/badge.svg)
+
+[![Code Climate](https://api.codeclimate.com/v1/badges/9ce0b7fe86ec5304b1d0/maintainability)](https://codeclimate.com/github/temirKhan42/space-travel/maintainability)
+
 This is a solution to the [Space tourism website challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
