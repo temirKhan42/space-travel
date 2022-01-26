@@ -1,8 +1,8 @@
-import getStatus from './App.jsx';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.jsx";
+import "../styles/main.scss";
 
 export default () => {
-  const point = document.getElementById('point');
-  const appInitState = getStatus('success');
-  const mode = process.env.NODE_ENV;
-  point.innerHTML = `${appInitState} from ${mode}`;
+  ReactDOM.render(<App />, document.getElementById("root"));
 };
