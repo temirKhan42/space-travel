@@ -9,24 +9,23 @@ module.exports = {
   mode,
   entry: "./index.js",
 	output: {
-		filename: "main.[hash].js",
+		filename: "main.[fullhash].js",
 		path: path.resolve(__dirname, "dist"),
-    assetModuleFilename: "./imgs/[name].[hash].[ext]",
+    assetModuleFilename: "./imgs/[name].[fullhash].[ext]",
 	},
-  devServer: {
-    compress: true,
-    port: 8080,
-    host: '0.0.0.0',
-    historyApiFallback: true,
-  },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
       {
         test: /\.html$/,
         use: ["html-loader"]
       },
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/,
         use: [                             
           MiniCssExtractPlugin.loader,    
           "css-loader",
@@ -36,7 +35,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './template/index.html' }),
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
     new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
     new CleanWebpackPlugin(),
   ],
