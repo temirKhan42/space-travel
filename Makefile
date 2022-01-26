@@ -1,7 +1,7 @@
 # Makefile
 
 lint:
-	npx eslint .
+	npx eslint . --ext .js --ext .jsx
 
 build:
 	rm -rf dist
