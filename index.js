@@ -1,3 +1,3 @@
-import startApp from './src/init.js';
+import startApp from './src/init.jsx';
 
 startApp();
