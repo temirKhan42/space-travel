@@ -1,5 +1,6 @@
 node_modules
 dist
+assets
 
 # Avoid accidental upload of the Sketch and Figma design files
 *.sketch
