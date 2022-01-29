@@ -12,9 +12,9 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   output: {
-    filename: 'main.[fullhash].js',
+    filename: 'main.[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
-    assetModuleFilename: './imgs/[name].[fullhash].[ext]',
+    assetModuleFilename: 'imgs/[name].[contenthash][ext]',
   },
   module: {
     rules: [
@@ -30,10 +30,19 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '/',
+            }
+          },
           'css-loader',
           'sass-loader',
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        type: 'asset/resource',
       },
     ],
   },
