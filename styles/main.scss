@@ -1,10 +1,4 @@
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-div {
-  font-family: sans-serif;
-  font-size: 1.5rem;
-}
+@import "variables";
+@import "globals";
+@import "container";
+@import "menu";
