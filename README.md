@@ -14,7 +14,7 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+  - [Issues](#issues)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
@@ -59,32 +59,49 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
-### What I learned
+### Issues
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+**Webpack background image not showing**
 
-To see how you can add code snippets, see below:
+When i've used background-inage style in my scss module, the background didn't changed.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+```scss
+.container {
+  background-image: url(/assets/home/background-home-mobile.jpg);
 }
 ```
+
+The problem was in webpack file loader. 
+
+Wrong configuration:
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+rules: {
+  {
+    test: /\.(png|jpe?g|gif|svg)$/i,
+    use: file-loader,
+  },
 }
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Right configuration:
+
+```js
+rules: {
+  {
+    test: /\.(png|jpe?g|gif|svg)$/i,
+    type: 'asset/resource',
+  },
+}
+```
+
+**Links**
+
+[Explanation resource here](https://webpack.js.org/guides/asset-modules/#resource-assets)
 
 **Note: Delete this note and the content within this section and replace with your own learnings.**
 
