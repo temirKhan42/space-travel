@@ -1,7 +1,10 @@
 # Makefile
 
 lint:
-	npx eslint . --ext .js --ext .jsx
+	npx eslint . --ext .js,.jsx
+
+lint-fix:
+	npx eslint . --ext .js,.jsx --fix
 
 build:
 	rm -rf dist
