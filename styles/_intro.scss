@@ -1,0 +1,40 @@
+.intro {
+  flex-direction: column;
+
+  &__phrase {
+    margin-bottom: 1.1875rem;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: 0.8125rem;
+    text-align: center;
+  }
+
+  &__description {
+    text-align: center;
+  }
+}
+
+.phrase {
+  font-family: $ff-sans-condens;
+  color: $color-blue;
+  font-size: $fs-300;
+  letter-spacing: 0.168rem;
+  line-height: 1.1875;
+}
+
+.title {
+  font-family: $ff-serif;
+  color: $color-white;
+  font-size: $fs-900;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.description {
+  font-family: $ff-sans-normal;
+  color: $color-blue;
+  font-size: $fs-400;
+  line-height: 1.66;
+}

@@ -1,0 +1,13 @@
+.navlink {
+  font-family: $ff-sans-condens;
+  font-size: $fs-300;
+  letter-spacing: 0.1687rem;
+  line-height: 1.1875;
+  text-transform: uppercase;
+  color: $color-white;
+  text-decoration: none;
+
+  &--num {
+    font-weight: 900;
+  }
+}
