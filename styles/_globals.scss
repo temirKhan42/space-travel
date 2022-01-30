@@ -52,6 +52,20 @@ select {
   font: inherit;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 /* remove animations for users who've turned them off */
 @media (prefers-reduced-motion: reduce) {  
   *,
@@ -64,4 +78,11 @@ select {
   }
 }
 
+/* Utility classes */
+.flex {
+  display: flex;
+}
 
+.jc-sb {
+  justify-content: space-between;
+}
