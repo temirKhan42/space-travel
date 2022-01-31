@@ -1,34 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoImg from '../../assets/shared/logo.svg';
 import hamburger from '../../assets/shared/icon-hamburger.svg';
 import closeIcon from '../../assets/shared/icon-close.svg';
+import cn from 'classnames';
 
-function Nav() {
+function Nav({ classMod = '' }) {
+  const navClasses = cn('nav', 'dropdownMenu__nav', classMod);
+
   return (
-    <nav className="nav nav--dropdownMenu">
+    <nav className={navClasses}>
       <ul>
-        <li>
-          <span className="navlink nav__navlink navlink--num">01</span>
-          <Link to="/" className="navlink">
+        <li className="dropdownMenu__item">
+          <Link to="/" className="navlink nav__navlink" autofocus>
             Home
           </Link>
         </li>
-        <li>
-          <span className="navlink nav__navlink navlink--num">02</span>
-          <Link to="destination" className="navlink">
+        <li className="dropdownMenu__item">
+          <Link to="/destination" className="navlink nav__navlink">
             Destination
           </Link>
         </li>
-        <li>
-          <span className="navlink nav__navlink navlink--num">03</span>
-          <Link to="/crew" className="navlink">
+        <li className="dropdownMenu__item">
+          <Link to="/crew" className="navlink nav__navlink">
             Crew
           </Link>
         </li>
-        <li>
-          <span className="navlink nav__navlink navlink--num">04</span>
-          <Link to="technology" className="navlink">
+        <li className="dropdownMenu__item">
+          <Link to="/technology" className="navlink nav__navlink">
             Technology
           </Link>
         </li>
@@ -38,14 +37,20 @@ function Nav() {
 }
 
 function Menu() {
+  const [isMenuHide, setIsMenuHide] = useState(true);
+
+  const handleClick = () => {
+    setIsMenuHide(!isMenuHide);
+  };
+
   return (
     <header className="menu flex jc-sb container__menu">
       <img src={logoImg} alt='logo icon' className='menu__logo' />
       <Nav />
-      <button className="menu__button">
+      <button onClick={handleClick} className="menu__button">
         <img src={hamburger} alt="menu button" className='menu__hamburger' />
       </button>
-      <DropdownMenu />
+      <DropdownMenu isMenuHide={isMenuHide} setIsMenuHide={setIsMenuHide} />
     </header>
   );
 }
@@ -67,18 +72,26 @@ function Intro() {
 function LargeBtn() {
   return (
     <button className="largeBtn container__largeBtn">
-      <span className="largeBtn__text mainBtnText">explore</span>
+      <Link to="/destination" className="largeBtn__text mainBtnText">explore</Link>
     </button>
   );
 }
 
-function DropdownMenu() {
+function DropdownMenu({ isMenuHide, setIsMenuHide }) {
+  const handleClick = () => {
+    setIsMenuHide(!isMenuHide);
+  };
+
+  const dropdownMenuClasses = cn('dropdownMenu menu__dropdownMenu', { 
+    'menu__dropdownMenu--hidden': isMenuHide,
+  });
+
   return (
-    <div className="dropdownMenu menu__dropdownMenu">
-      <button className="dropdownMenu__closeBtn">
+    <div className={dropdownMenuClasses}>
+      <button onClick={handleClick} className="dropdownMenu__closeBtn">
         <img src={closeIcon} alt="close button" />
       </button>
-      <Nav />
+      <Nav classMod='nav--dropdownMenu' />
     </div>
   );
 }
