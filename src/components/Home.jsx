@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoImg from '../../assets/shared/logo.svg';
+const logoImg = require('../../assets/shared/logo.svg');
 import hamburger from '../../assets/shared/icon-hamburger.svg';
 import closeIcon from '../../assets/shared/icon-close.svg';
 import cn from 'classnames';
