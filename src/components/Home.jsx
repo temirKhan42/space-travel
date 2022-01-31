@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-const logoImg = require('../../assets/shared/logo.svg');
+import { useSelector, useDispatch } from 'react-redux';
+import cn from 'classnames';
+
+import { toggleDropdownMenu } from '../slices/uiSlice.js';
+import logoImg from '../../assets/shared/logo.svg';
 import hamburger from '../../assets/shared/icon-hamburger.svg';
 import closeIcon from '../../assets/shared/icon-close.svg';
-import cn from 'classnames';
 
 function Nav({ classMod = '' }) {
   const navClasses = cn('nav', 'dropdownMenu__nav', classMod);
@@ -12,7 +15,7 @@ function Nav({ classMod = '' }) {
     <nav className={navClasses}>
       <ul>
         <li className="dropdownMenu__item">
-          <Link to="/" className="navlink nav__navlink" autofocus>
+          <Link to="/" className="navlink nav__navlink">
             Home
           </Link>
         </li>
@@ -37,10 +40,10 @@ function Nav({ classMod = '' }) {
 }
 
 function Menu() {
-  const [isMenuHide, setIsMenuHide] = useState(true);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setIsMenuHide(!isMenuHide);
+    dispatch(toggleDropdownMenu());
   };
 
   return (
@@ -50,7 +53,7 @@ function Menu() {
       <button onClick={handleClick} className="menu__button">
         <img src={hamburger} alt="menu button" className='menu__hamburger' />
       </button>
-      <DropdownMenu isMenuHide={isMenuHide} setIsMenuHide={setIsMenuHide} />
+      <DropdownMenu />
     </header>
   );
 }
@@ -77,13 +80,20 @@ function LargeBtn() {
   );
 }
 
-function DropdownMenu({ isMenuHide, setIsMenuHide }) {
+function DropdownMenu() {
+  const dropdownMenuState = useSelector((state) => state.ui.dropdownMenuState);
+  const dispatch = useDispatch();
+
+  const isMenuHidden = () => {
+    return dropdownMenuState === 'close';
+  }
+
   const handleClick = () => {
-    setIsMenuHide(!isMenuHide);
+    dispatch(toggleDropdownMenu());
   };
 
   const dropdownMenuClasses = cn('dropdownMenu menu__dropdownMenu', { 
-    'menu__dropdownMenu--hidden': isMenuHide,
+    'menu__dropdownMenu--hidden': isMenuHidden(),
   });
 
   return (
