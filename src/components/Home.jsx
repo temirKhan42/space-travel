@@ -99,7 +99,7 @@ function DropdownMenu({ isMenuHide, setIsMenuHide }) {
 export default function Home() {
   return (
     <div className="home">
-      <div className="container">
+      <div className="container home__container">
         <Menu />
         <Intro />
         <LargeBtn />
