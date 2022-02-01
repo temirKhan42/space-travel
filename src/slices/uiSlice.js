@@ -5,7 +5,7 @@ const pageNames = ['home', 'destination', 'crew', 'technology'];
 const pages = pageNames.map((name) => ({ name, id: _.uniqueId() }));
 
 const initialState = {
-  currentPage: pages[0].id,
+  currentPageId: pages[0].id,
   pages,
   dropdownMenuState: 'close',   // open/close
 };
