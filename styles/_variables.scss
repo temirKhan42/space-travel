@@ -4,15 +4,35 @@ $color-blue: hsl(231, 77%, 90%);
 $color-white: hsl(0, 0%, 100%);
 
 //Font-size
-$fs-900: 5rem;
-$fs-800: 3.5rem;
-$fs-700: 1.5rem;
-$fs-650: 1.25rem;
-$fs-600: 1rem;
-$fs-500: 1.75rem;
-$fs-400: 0.9375rem;
-$fs-300: 1rem;
-$fs-200: 0.875rem;
+:root {
+  --fs-900: 5rem;
+  --fs-800: 3.5rem;
+  --fs-700: 1.5rem;
+  --fs-650: 1.25rem;
+  --fs-600: 1rem;
+  --fs-500: 1.75rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.875rem;
+}
+
+@include breakpoint-up(medium) {
+  :root {
+    --fs-900: 9.375rem;
+    --fs-650: 2rem;
+    --fs-600: 1.25rem;
+    --fs-400: 1rem;
+    --fs-300: 0.875rem;
+  }
+}
+
+@include breakpoint-up(large) {
+  :root {
+    --fs-600: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+  }
+}
 
 //Font family
 $ff-serif: "Bellefair", serif;
