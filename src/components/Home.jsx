@@ -8,50 +8,60 @@ import logoImg from '../../assets/shared/logo.svg';
 import hamburger from '../../assets/shared/icon-hamburger.svg';
 import closeIcon from '../../assets/shared/icon-close.svg';
 
-function Nav({ classMod = '' }) {
-  const navClasses = cn('nav', 'dropdownMenu__nav', classMod);
+
+function Nav({ externalClasses = {} }) {
+  const { from, classes } = externalClasses;
+  const navMod = from === 'dropdownMenu' ? classes[0] : '';
+  const flex = from === 'header' ? classes[0] : '';
+
+  const navClasses = cn('nav', 'dropdownMenu__nav', navMod);
+  const { pages, currentPageId } = useSelector((state) => state.ui);
 
   return (
     <nav className={navClasses}>
-      <ul>
-        <li className="dropdownMenu__item">
-          <Link to="/" className="navlink nav__navlink">
-            Home
-          </Link>
-        </li>
-        <li className="dropdownMenu__item">
-          <Link to="/destination" className="navlink nav__navlink">
-            Destination
-          </Link>
-        </li>
-        <li className="dropdownMenu__item">
-          <Link to="/crew" className="navlink nav__navlink">
-            Crew
-          </Link>
-        </li>
-        <li className="dropdownMenu__item">
-          <Link to="/technology" className="navlink nav__navlink">
-            Technology
-          </Link>
-        </li>
+      <ul className={flex}>
+        {pages.map(({ name, id }, index) => {
+          const address = name === 'home' ? '/' : `/${name}`;
+          const liClasses = cn('dropdownMenu__item', {
+            'navCurrentItem': id === currentPageId,
+          });
+
+          return (
+            <li key={id} className={liClasses}>
+              <span className='navlink navlink--num dropdownMenu__navlink'>
+                {`0${index += 1}`}
+              </span>
+              <Link to={address} className='navlink'>
+                {name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
 }
 
-function Menu() {
+function Header() {
   const dispatch = useDispatch();
 
   const handleClick = () => {
     dispatch(toggleDropdownMenu());
   };
 
+  const externalClasses = {
+    classes: ['flex'],
+    from: 'header',
+  };
+
   return (
-    <header className="menu flex jc-sb container__menu">
-      <img src={logoImg} alt='logo icon' className='menu__logo' />
-      <Nav />
-      <button onClick={handleClick} className="menu__button">
-        <img src={hamburger} alt="menu button" className='menu__hamburger' />
+    <header className="header flex jc-sb ai-c container__header">
+      <div className="logo">
+        <img src={logoImg} alt='logo icon' className='header__logo' />
+      </div>
+      <Nav externalClasses={externalClasses} />
+      <button onClick={handleClick} className="header__button">
+        <img src={hamburger} alt="menu button" className='header__hamburger' />
       </button>
       <DropdownMenu />
     </header>
@@ -60,7 +70,7 @@ function Menu() {
 
 function Intro() {
   return (
-    <div className="intro flex container__intro">
+    <div className="intro flex">
       <h5 className="intro__phrase phrase">So, you want to travel to</h5>
       <h1 className="intro__title title">Space</h1>
       <p className="intro__description description">
@@ -75,7 +85,7 @@ function Intro() {
 function LargeBtn() {
   return (
     <button className="largeBtn container__largeBtn">
-      <Link to="/destination" className="largeBtn__text mainBtnText">explore</Link>
+      <Link to="/destination" className="largeBtn__text largeBtnText">explore</Link>
     </button>
   );
 }
@@ -92,16 +102,21 @@ function DropdownMenu() {
     dispatch(toggleDropdownMenu());
   };
 
-  const dropdownMenuClasses = cn('dropdownMenu menu__dropdownMenu', { 
-    'menu__dropdownMenu--hidden': isMenuHidden(),
+  const dropdownMenuClasses = cn('dropdownMenu header__dropdownMenu', { 
+    'header__dropdownMenu--hidden': isMenuHidden(),
   });
+
+  const externalClasses = {
+    classes: ['nav--db'],
+    from: 'dropdownMenu',
+  };
 
   return (
     <div className={dropdownMenuClasses}>
       <button onClick={handleClick} className="dropdownMenu__closeBtn">
         <img src={closeIcon} alt="close button" />
       </button>
-      <Nav classMod='nav--dropdownMenu' />
+      <Nav externalClasses={externalClasses} />
     </div>
   );
 }
@@ -110,9 +125,11 @@ export default function Home() {
   return (
     <div className="home">
       <div className="container home__container">
-        <Menu />
-        <Intro />
-        <LargeBtn />
+        <Header />
+        <div>
+          <Intro />
+          <LargeBtn />
+        </div>
       </div>
     </div>
   );
