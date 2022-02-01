@@ -1,11 +1,19 @@
+@import "mixins";
 @import "variables";
 @import "globals";
-@import "container";
-@import "menu";
-@import "nav";
-@import "intro";
-@import "largeBtn";
-@import "dropdownMenu";
-@import "navList";
-@import "navLink";
-@import "home";
+
+// import blocks
+@import "./blocks/container";
+@import "./blocks/header";
+@import "./blocks/logo";
+@import "./blocks/nav";
+@import "./blocks/intro";
+@import "./blocks/phrase";
+@import "./blocks/title";
+@import "./blocks/description";
+@import "./blocks/largeBtn";
+@import "./blocks/largeBtnText";
+@import "./blocks/dropdownMenu";
+@import "./blocks/navLink";
+@import "./blocks/home";
+@import "./blocks/navCurrentItem";
