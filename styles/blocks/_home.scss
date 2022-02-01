@@ -1,0 +1,11 @@
+.home {
+  &__container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  @include breakpoint-up(medium) {
+    position: static;
+  }
+}

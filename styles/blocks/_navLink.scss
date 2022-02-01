@@ -1,0 +1,26 @@
+.navlink {
+  font-family: $ff-sans-condens;
+  font-size: var(--fs-300);
+  letter-spacing: 0.1687rem;
+  line-height: 1.1875;
+  text-transform: uppercase;
+  color: $color-white;
+  text-decoration: none;
+
+  &--num {
+    font-weight: 700;
+
+    @include breakpoint-up(medium) {
+      display: none;
+    }
+
+    @include breakpoint-up(large) {
+      display: inline-block;
+    }
+  }
+
+  @include breakpoint-up(medium) {
+    letter-spacing: 0.1476rem;
+    line-height: 1.214;
+  }
+}

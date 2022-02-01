@@ -1,0 +1,15 @@
+.title {
+  font-family: $ff-serif;
+  color: $color-white;
+  font-size: var(--fs-900);
+  line-height: 1.25;
+  text-transform: uppercase;
+
+  @include breakpoint-up(medium) {
+    line-height: 1;
+  }
+
+  @include breakpoint-up(large) {
+    line-height: 1.146;
+  }
+}

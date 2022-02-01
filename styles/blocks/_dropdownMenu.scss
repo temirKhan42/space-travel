@@ -1,0 +1,55 @@
+.dropdownMenu {
+  background-color: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(81.5485px);
+  backdrop-filter: blur(81.5485px);
+  overflow: hidden;
+
+  &__closeBtn {
+    width: 1.26em;
+    height: 1.26em;
+    margin-left: auto;
+    margin-right: 1.8em;
+    display: block;
+  }
+
+  &__nav {
+    padding-top: 4.333em;
+
+    @include breakpoint-up(medium) {
+      padding: 0 0.5em;
+    }
+
+    @include breakpoint-up(large) {
+      padding-right: 8.0555em;
+      padding-left: 5.2777em;
+    }
+  }
+
+  &__item {
+    margin-bottom: 2.133em;
+
+    @include breakpoint-up(medium) {
+      padding: 2.5em 0;
+      margin: 0 1.25em;
+    }
+
+    @include breakpoint-up(large) {
+      padding: 2.222em 0;
+      margin: 0 1.333em;
+    }
+  }
+
+  &__navlink {
+    padding-left: 2em;
+    padding-right: 0.75em;
+
+    @include breakpoint-up(large) {
+      padding-left: 0;
+    }
+  }
+
+  @include breakpoint-up(medium) {
+    display: none;
+  }
+}
+

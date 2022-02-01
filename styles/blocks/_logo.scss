@@ -1,0 +1,9 @@
+.logo {
+  @include breakpoint-up(medium) {
+    padding-left: 2.5em;
+  }
+
+  @include breakpoint-up(large) {
+    padding-left: 3.4375em;
+  }
+}

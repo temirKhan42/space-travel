@@ -1,0 +1,30 @@
+.intro {
+  flex-direction: column;
+
+  &__phrase {
+    margin-bottom: 1.1875rem;
+    text-align: center;
+
+    @include breakpoint-up(medium) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0.8125rem;
+    text-align: center;
+
+    @include breakpoint-up(medium) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__description {
+    text-align: center;
+  }
+
+  @include breakpoint-up(medium) {
+    width: 28.125em;
+    margin: 0 auto;   
+  }
+}

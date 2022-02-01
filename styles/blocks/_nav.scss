@@ -1,0 +1,35 @@
+.nav {
+  display: none;
+
+  &--db {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  @include breakpoint-up(medium) {
+    display: block;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(81.5485px);
+    -webkit-backdrop-filter: blur(81.5485px);
+  }
+
+  @include breakpoint-up(large) {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 26.277em;
+      height: 1px;
+      top: 50%;
+      right: 95%;
+      background-color: $color-white;
+      opacity: 0.25;
+      mix-blend-mode: normal;
+    }
+  }
+}

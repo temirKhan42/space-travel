@@ -1,0 +1,16 @@
+.phrase {
+  font-family: $ff-sans-condens;
+  color: $color-blue;
+  font-size: var(--fs-600);
+  letter-spacing: 0.168rem;
+  line-height: 1.1875;
+
+  @include breakpoint-up(medium) {
+    line-height: 1.2;
+    letter-spacing: 0.210rem;
+  }
+
+  @include breakpoint-up(large) {
+    letter-spacing: 0.2953rem;
+  }
+}
