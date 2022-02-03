@@ -8,6 +8,10 @@
     @include breakpoint-up(medium) {
       margin-bottom: 1.5rem;
     }
+
+    @include breakpoint-up(large) {
+      text-align: left;
+    }
   }
 
   &__title {
@@ -17,14 +21,17 @@
     @include breakpoint-up(medium) {
       margin-bottom: 1.5rem;
     }
+
+    @include breakpoint-up(large) {
+      text-align: left;
+    }
   }
 
   &__description {
     text-align: center;
-  }
 
-  @include breakpoint-up(medium) {
-    width: 28.125em;
-    margin: 0 auto;   
+    @include breakpoint-up(large) {
+      text-align: left;
+    }
   }
 }

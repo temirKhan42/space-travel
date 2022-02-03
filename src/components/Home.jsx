@@ -70,7 +70,7 @@ function Header() {
 
 function Intro() {
   return (
-    <div className="intro flex">
+    <div className="intro flex container__intro">
       <h5 className="intro__phrase phrase">So, you want to travel to</h5>
       <h1 className="intro__title title">Space</h1>
       <p className="intro__description description">
@@ -122,11 +122,15 @@ function DropdownMenu() {
 }
 
 export default function Home() {
+  const width = window.innerWidth;
+
+  const className = width >= 1440 ? 'flex jc-sa ai-fe' : '';
+
   return (
     <div className="home">
       <div className="container home__container">
         <Header />
-        <div>
+        <div className={className}>
           <Intro />
           <LargeBtn />
         </div>

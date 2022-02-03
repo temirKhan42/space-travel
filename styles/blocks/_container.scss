@@ -13,8 +13,19 @@
     }
 
     @include breakpoint-up(large) {
-      margin-top: 2.5em;
-      margin-bottom: 15.625em;
+      margin-top: 2.222em;
+      margin-bottom: 13.944em;
+    }
+  }
+
+  &__intro {
+    @include breakpoint-up(medium) {
+      width: 28.125em;
+      margin: 0 auto;   
+    }
+
+    @include breakpoint-up(large) {
+      margin: 0;
     }
   }
 
@@ -32,14 +43,16 @@
     }
 
     @include breakpoint-up(large) {
-      width: 17.125em;
-      height: 17.125em;
+      width: 15.222em;
+      height: 15.222em;
+      margin: 0;
     }
   }
 
   @include breakpoint-up(medium) {
     background-image: url('/assets/home/background-home-tablet.jpg');
-    padding: 0;
+    padding: 0 0 6em;
+    overflow-y: auto;
   }
 
   @include breakpoint-up(large) {
