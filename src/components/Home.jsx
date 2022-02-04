@@ -84,9 +84,11 @@ function Intro() {
 
 function LargeBtn() {
   return (
-    <button className="largeBtn container__largeBtn">
-      <Link to="/destination" className="largeBtn__text largeBtnText">explore</Link>
-    </button>
+    <div className="largeBtn">
+      <Link to="/destination" className="largeBtnText largeBtn__largeBtnText">
+        explore
+      </Link>
+    </div>
   );
 }
 
@@ -124,7 +126,7 @@ function DropdownMenu() {
 export default function Home() {
   const width = window.innerWidth;
 
-  const className = width >= 1440 ? 'flex jc-sa ai-fe' : '';
+  const className = width >= 1440 ? 'main flex jc-sa ai-fe' : 'main';
 
   return (
     <div className="home">

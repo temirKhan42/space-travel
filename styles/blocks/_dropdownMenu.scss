@@ -31,6 +31,10 @@
     @include breakpoint-up(medium) {
       padding: 2.5em 0;
       margin: 0 1.25em;
+
+      &:not(.navCurrentItem):hover {
+        border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+      }
     }
 
     @include breakpoint-up(large) {

@@ -1,8 +1,38 @@
 .largeBtn {
-  background-color: $color-white;
-  border-radius: 50%;
+  display: inline-block;
+  margin-top: 4.05em;
 
-  &__text {
-    text-align: center;
+  &__largeBtnText {
+    position: relative;
+    width: 7.5em;
+    height: 7.5em;
+    display: table-cell; 
+
+    @include breakpoint-up(medium) {
+      width: 7.5625em;
+      height: 7.5625em;
+      margin-top: 4.875em;
+
+      &:hover::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        width: 164%;
+        height: 164%;
+        background-color: $color-white;
+        mix-blend-mode: normal;
+        opacity: 0.1;
+      }
+    }
+
+    @include breakpoint-up(large) {
+      width: 8.5625em;
+      height: 8.5625em;
+      margin: 0;
+    }
   }
 }

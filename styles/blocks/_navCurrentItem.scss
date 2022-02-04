@@ -2,10 +2,7 @@
   border-right: 4px solid $color-white;
 
   @include breakpoint-up(medium) {
-    border: none;
-  }
-
-  @include breakpoint-up(large) {
+    border-right: none;
     border-bottom: 3px solid $color-white;
   }
 }
