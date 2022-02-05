@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import cn from 'classnames';
 
@@ -10,6 +10,13 @@ import closeIcon from '../../assets/shared/icon-close.svg';
 
 
 function Nav({ externalClasses = {} }) {
+  const navigate = useNavigate();
+
+  const handleClick = (address) => (e) => {
+    e.preventDefault();
+    navigate(address);
+  }
+
   const { from, classes } = externalClasses;
   const navMod = from === 'dropdownMenu' ? classes[0] : '';
   const flex = from === 'header' ? classes[0] : '';
@@ -27,13 +34,13 @@ function Nav({ externalClasses = {} }) {
           });
 
           return (
-            <li key={id} className={liClasses}>
+            <li key={id} onClick={handleClick(address)} className={liClasses}>
               <span className='navlink navlink--num dropdownMenu__navlink'>
                 {`0${index += 1}`}
               </span>
-              <Link to={address} className='navlink'>
+              <a href={address} className='navlink navCurrentItem__navlink'>
                 {name}
-              </Link>
+              </a>
             </li>
           );
         })}

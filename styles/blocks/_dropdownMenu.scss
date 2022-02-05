@@ -27,12 +27,15 @@
 
   &__item {
     margin-bottom: 2.133em;
+    border-bottom: 3px solid rgba(255, 255, 255, 0);
+    transition: all 0.3s linear;
 
     @include breakpoint-up(medium) {
       padding: 2.5em 0;
       margin: 0 1.25em;
 
       &:not(.navCurrentItem):hover {
+        cursor: pointer;
         border-bottom: 3px solid rgba(255, 255, 255, 0.5);
       }
     }
