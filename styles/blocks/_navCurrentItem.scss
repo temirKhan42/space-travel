@@ -1,12 +1,6 @@
 .navCurrentItem {
   border-right: 4px solid $color-white;
 
-  &__navlink {
-    &:hover {
-      cursor: text;
-    }
-  }
-
   @include breakpoint-up(medium) {
     border-right: none;
     border-bottom: 3px solid $color-white;

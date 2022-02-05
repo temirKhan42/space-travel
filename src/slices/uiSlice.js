@@ -7,7 +7,7 @@ const pages = pageNames.map((name) => ({ name, id: _.uniqueId() }));
 const initialState = {
   currentPageId: pages[0].id,
   pages,
-  dropdownMenuState: 'close',   // open/close
+  dropdownMenuState: 'close', // open/close
 };
 
 export const uiSlice = createSlice({

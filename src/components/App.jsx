@@ -6,7 +6,6 @@ import Destination from './Destination.jsx';
 import Crew from './Crew.jsx';
 import Technology from './Technology.jsx';
 
-
 export default function App() {
   return (
     <div>
