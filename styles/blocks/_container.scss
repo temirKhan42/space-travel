@@ -1,5 +1,4 @@
 .container {
-  background-image: url('~/assets/home/background-home-mobile.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1.6em 1.6em 3.2em;
@@ -30,12 +29,7 @@
   }
 
   @include breakpoint-up(medium) {
-    background-image: url('/assets/home/background-home-tablet.jpg');
     padding: 0 0 6em;
     overflow-y: auto;
-  }
-
-  @include breakpoint-up(large) {
-    background-image: url('/assets/home/background-home-desktop.jpg');
   }
 }

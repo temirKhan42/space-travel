@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import Home from './Home.jsx';
-import Destination from './Destination.jsx';
-import Crew from './Crew.jsx';
-import Technology from './Technology.jsx';
+import Home from './pages/Home.jsx';
+import Destination from './pages/Destination.jsx';
+import Crew from './pages/Crew.jsx';
+import Technology from './pages/Technology.jsx';
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="destination" element={<Destination />} />
+          <Route path="/destination" element={<Destination />} />
           <Route path="crew" element={<Crew />} />
           <Route path="technology" element={<Technology />} />
         </Routes>

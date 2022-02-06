@@ -98,3 +98,27 @@ ol {
 .ai-fe {
   align-items: flex-end;
 }
+
+.background-home {
+  background-image: url('/assets/home/background-home-mobile.jpg');
+
+  @include breakpoint-up(medium) {
+    background-image: url('/assets/home/background-home-tablet.jpg');
+  }
+
+  @include breakpoint-up(large) {
+    background-image: url('/assets/home/background-home-desktop.jpg');
+  }
+}
+
+.background-dest {
+  background-image: url(/assets/destination/background-destination-mobile.jpg);
+
+  @include breakpoint-up(medium) {
+    background-image: url(/assets/destination/background-destination-tablet.jpg);
+  }
+
+  @include breakpoint-up(large) {
+    background-image: url(/assets/destination/background-destination-desktop.jpg);
+  }
+}

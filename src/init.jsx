@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './components/App.jsx';
+
+import App from './App.jsx';
 import store from './store/store.js';
 import dataContext from './context/index.js';
 import data from './static/data.json';
